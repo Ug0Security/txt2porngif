@@ -57,13 +57,20 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
 
     <form method="post" action="/txt2porngif/index.php">
         <label for="param1">Type :</label>
-        <input type="text" name="param1" id="param1" required><br>
-
+       
+        <select name="param1" id="param1">
+        <option value="hentai">hentai</option>
+        <option value="general">general</option>
+	</select></br>
+	
         <label for="param2">Prompt :</label>
-        <input type="text" name="param2" id="param2" required><br>
+        <textarea name="param2" id="param2" rows="5" cols="32" required></textarea><br>
 
         <label for="param3">Fixed seed:</label>
-        <input type="text" name="param3" id="param3"><br>
+        <select name="param3" id="param3">
+        <option value="">nope</option>
+        <option value="fixed">fixed</option>
+	</select></br>
 
         <label for="param3">Seed number:</label>
         <input type="text" name="param3" id="param3"><br>
