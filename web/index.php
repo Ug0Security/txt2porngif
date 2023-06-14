@@ -127,6 +127,10 @@ function hide() {
             document.getElementById('btnID')
                 .style.display = "";
         }
+	    
+var timestamp = new Date().getTime();     
+var el = document.getElementById("image");        
+el.src = "gif/test.gif?t=" + timestamp;  
     </script>
    
  <?php 
