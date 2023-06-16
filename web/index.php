@@ -72,8 +72,8 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
         <option value="fixed">fixed</option>
 	</select></br>
 
-        <label for="param3">Seed number:</label>
-        <input type="text" name="param3" id="param3"><br>
+        <label for="param4">Seed number:</label>
+        <input type="text" name="param4" id="param4"><br>
         
         <input type="submit" value="Execute">
     </form>
@@ -90,6 +90,14 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
 <button type="button" name="save" onclick="self.location.href='index.php?save=1'">
 Save
 </button>
+
+<button type="button" onclick="location.href='picgal.php';" id="btnID">
+        picgal
+    </button>
+    
+    <button type="button" onclick="location.href='gifgal.php';" id="btnID">
+        gifgal
+    </button>
 <img id="image" src="./gif/test.gif"> 
 
 
@@ -127,7 +135,7 @@ function hide() {
             document.getElementById('btnID')
                 .style.display = "";
         }
-	    
+        
 var timestamp = new Date().getTime();     
 var el = document.getElementById("image");        
 el.src = "gif/test.gif?t=" + timestamp;  
