@@ -11,7 +11,7 @@
    
       <?php 
          $images = scandir($imagesDirectory);
-
+	 arsort($images);
          if (empty(array_diff($images, $toSkip))) {
             echo "<p>No images in <b>$imagesDirectory</b> directory</p>";
          } else {
@@ -19,11 +19,12 @@
             {
                if (in_array($fileName, $toSkip)) continue;
                echo <<<_EOF
-               <div class="galleryImage">
+               
                   <a href="javascript:void(0);" class="openBtn" data-src="$imagesDirectory/$fileName">
                      <img src="$imagesDirectory/$fileName" alt="$fileName">
                   </a>
-               </div>
+                  <h3>$fileName</h3>
+               
                <!-- /.galleryImage -->
 _EOF;
             }
