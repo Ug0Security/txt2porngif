@@ -67,9 +67,10 @@ if [ $url != "null" ];
 then
 rm result$subseed.json 
 rm test$subseed.json 
+timestamp=$(date +%s)
 
-curl -sk $url -o test-$seed-$subseed.png
-cp test-$seed-$subseed.png ./images/test-$seed-$subseed.png
+curl -sk $url -o $timestamp-$seed-$subseed.png
+cp $timestamp-$seed-$subseed.png ./images/$timestamp-$seed-$subseed.png
 #echo "everthing is ok, extending .."
 #curl -sI https://www7.lunapic.com/editor/?action=virtual-border > cooks$seed
 #icon=$(cat cooks$seed | grep icon | grep -o -P '(?<=icon_id=).*(?=; path)') 
