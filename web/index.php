@@ -34,7 +34,7 @@
     // Function to sanitize user input
     
 
-if(isset($_POST['param1']) && isset($_POST['param2']))
+if(isset($_GET['gif']) && isset($_POST['param1']) && isset($_POST['param2']))
 {
 $param1 = escapeshellarg($_POST['param1']);
 $param2 = escapeshellarg($_POST['param2']);
@@ -47,6 +47,15 @@ $output = shell_exec("bash /var/www/html/txt2porngif/txt2gif.sh $param1 $param2 
 }
 
 
+if(isset($_GET['sound']) && isset($_POST['param2']))
+{
+
+$param2 = escapeshellarg($_POST['param2']);
+
+// Execute the script with the escaped parameters
+$output = shell_exec("bash /var/www/html/txt2porngif/txt2sound.sh $param2");
+}
+
 if(isset($_GET['save']))
 {
 $int = random_int(100000000, 999999999);
@@ -55,7 +64,7 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
 
     ?>
 
-    <form method="post" action="/txt2porngif/index.php">
+    <form method="post" action="/txt2porngif/index.php?gif=1">
         <label for="param1">Type :</label>
        
         <select name="param1" id="param1">
@@ -139,5 +148,20 @@ el.src = "gif/test.gif?t=" + timestamp;
  
  ?>
  
+     <form method="post" action="/txt2porngif/index.php?sound=1">
+       
+	
+        <label for="param2">Prompt :</label>
+        <textarea name="param2" id="param2" rows="5" cols="32" required></textarea><br>
+
+
+        <input type="submit" value="Craft sound">
+    </form>
+ 
+
+<video width="320" height="240" controls>
+  <source src="./sounds/test.mp4" type="video/mp4">
+</video>
+
 </body>
 </html>
