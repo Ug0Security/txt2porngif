@@ -140,8 +140,7 @@ function hide() {
 var timestamp = new Date().getTime();     
 var el = document.getElementById("image");        
 el.src = "gif/test.gif?t=" + timestamp;   
-var so = document.getElementById("sound");        
-so.src = "./sounds/test.mp4?t=" + timestamp;   
+
     </script>
    
  <?php 
@@ -164,6 +163,10 @@ so.src = "./sounds/test.mp4?t=" + timestamp;
 <video width="320" height="240" controls>
   <source id="sound" src="./sounds/test.mp4" type="video/mp4">
 </video>
-
+<script>
+var timestamp = new Date().getTime();   
+var so = document.getElementById("sound");        
+so.src = "./sounds/test.mp4?t=" + timestamp;   
+    </script>
 </body>
 </html>
