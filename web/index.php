@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>:)</title>
+    <title>CRAFT ZONE</title>
     
     <style>
         body {
@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <h2>:)</h2>
+    <h2>CRAFT ZONE :)</h2>
 
     <?php
     // Function to sanitize user input
@@ -75,7 +75,7 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
         <label for="param4">Seed number:</label>
         <input type="text" name="param4" id="param4"><br>
         
-        <input type="submit" value="Execute">
+        <input type="submit" value="Craft GIF">
     </form>
 
 
@@ -90,14 +90,6 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
 <button type="button" name="save" onclick="self.location.href='index.php?save=1'">
 Save
 </button>
-
-<button type="button" onclick="location.href='picgal.php';" id="btnID">
-        picgal
-    </button>
-    
-    <button type="button" onclick="location.href='gifgal.php';" id="btnID">
-        gifgal
-    </button>
 <img id="image" src="./gif/test.gif"> 
 
 
@@ -135,10 +127,10 @@ function hide() {
             document.getElementById('btnID')
                 .style.display = "";
         }
-        
+
 var timestamp = new Date().getTime();     
 var el = document.getElementById("image");        
-el.src = "gif/test.gif?t=" + timestamp;  
+el.src = "gif/test.gif?t=" + timestamp;   
     </script>
    
  <?php 
@@ -146,5 +138,6 @@ el.src = "gif/test.gif?t=" + timestamp;
  echo "<pre>$output</pre>";
  
  ?>
+ 
 </body>
 </html>
