@@ -1,3 +1,7 @@
+changement de perm pour le web 
+(chmod 666 sounds images gif)
+(chmod +x txt2gif.sh txt2imggif.sh txt2sound.sh txt2sound.py)
+
 https://gitlab.com/VladRico/alienet/-/tree/master/ipvs/demo
 
 config proxychains sur l'ipvs
