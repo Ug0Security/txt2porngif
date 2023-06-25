@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <h2>CRAFT ZONE :)</h2>
+    <h1>CRAFT ZONE :)</h1>
 
     <?php
     // Function to sanitize user input
@@ -43,7 +43,7 @@ $param4 = escapeshellarg($_POST['param4']);
 
 
 // Execute the script with the escaped parameters
-$output = shell_exec("bash /var/www/html/txt2porngif/txt2gif.sh $param1 $param2 $param3 $param4");
+$output1 = shell_exec("bash /var/www/html/txt2porngif/txt2gif.sh $param1 $param2 $param3 $param4");
 }
 
 
@@ -53,7 +53,7 @@ if(isset($_GET['sound']) && isset($_POST['param2']))
 $param2 = escapeshellarg($_POST['param2']);
 
 // Execute the script with the escaped parameters
-$output = shell_exec("bash /var/www/html/txt2porngif/txt2sound.sh $param2");
+$output2 = shell_exec("bash /var/www/html/txt2porngif/txt2sound.sh $param2");
 }
 
 if(isset($_GET['save']))
@@ -63,7 +63,11 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
 }
 
     ?>
-
+    
+    
+<button onclick="darkMode()">Darkmode</button>
+<button onclick="lightMode()">LightMode</button>
+<h2>=========================================================</h2>
     <form method="post" action="/txt2porngif/index.php?gif=1">
         <label for="param1">Type :</label>
        
@@ -103,8 +107,7 @@ Save
 
 
     
-    <button onclick="darkMode()">Darkmode</button>
-    <button onclick="lightMode()">LightMode</button>
+
     <script>
         function darkMode() {
             let element = document.body;
@@ -142,13 +145,14 @@ var el = document.getElementById("image");
 el.src = "gif/test.gif?t=" + timestamp;   
 
     </script>
-   
+<h2>========================[console output]=====================</h2>
+ 
  <?php 
  
- echo "<pre>$output</pre>";
+ echo "<pre>$output1</pre>";
  
  ?>
- 
+<h2>=========================================================</h2>  
      <form method="post" action="/txt2porngif/index.php?sound=1">
        
 	
@@ -168,5 +172,14 @@ var timestamp = new Date().getTime();
 var so = document.getElementById("sound");        
 so.src = "./sounds/test.mp4?t=" + timestamp;   
     </script>
+<h2>========================[console output]=====================</h2>
+ 
+ <?php 
+ 
+ echo "<pre>$output2</pre>";
+ 
+ ?>
+<h2>=========================================================</h2>      
+    
 </body>
 </html>
