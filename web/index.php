@@ -69,17 +69,17 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
 <button onclick="lightMode()">LightMode</button>
 <h2>=========================================================</h2>
     <form method="post" action="/txt2porngif/index.php?gif=1">
-        <label for="param1">Type :</label>
+        <label for="param1">---------Type :</label>
        
         <select name="param1" id="param1">
         <option value="hentai">hentai</option>
         <option value="general">general</option>
 	</select></br>
 	
-        <label for="param2">Prompt :</label>
+        <label for="param2">------Prompt :</label>
         <textarea name="param2" id="param2" rows="5" cols="32" required></textarea><br>
 
-        <label for="param3">Fixed seed:</label>
+        <label for="param3">---Fixed seed:</label>
         <select name="param3" id="param3">
         <option value="">nope</option>
         <option value="fixed">fixed</option>
@@ -91,7 +91,7 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
         <input type="submit" value="Craft GIF">
     </form>
 
-
+<h2>--------------------------------------------------------------------------------------------------</h2>
     <button type="button" onclick="hide()" id="btnID">
         Hide GIF
     </button>
