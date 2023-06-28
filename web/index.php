@@ -67,6 +67,9 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
     
 <button onclick="darkMode()">Darkmode</button>
 <button onclick="lightMode()">LightMode</button>
+<button type="button" name="picgal" onclick="self.location.href='picgal.php'">picgal</button>
+<button type="button" name="gifgal" onclick="self.location.href='gifgal.php'">gifgal</button>
+<button type="button" name="vidgal" onclick="self.location.href='vidgal.php'">vidgal</button>
 <h2>=========================================================</h2>
     <form method="post" action="/txt2porngif/index.php?gif=1">
         <label for="param1">---------Type :</label>
@@ -88,7 +91,7 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
         <label for="param4">Seed number:</label>
         <input type="text" name="param4" id="param4"><br>
         
-        <input type="submit" value="Craft GIF">
+        <input type="submit" value="Craft GIF&VID">
     </form>
 
 <h2>--------------------------------------------------------------------------------------------------</h2>
@@ -103,7 +106,7 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
 <button type="button" name="save" onclick="self.location.href='index.php?save=1'">
 Save
 </button>
-<img id="image" src="./gif/test.gif"> 
+<img id="image" src="./gif/test.gif"></img> <video width="320" height="240" controls><source id="vids" src="./vids/output.mp4" type="video/mp4"></video>
 
 
     
@@ -143,6 +146,11 @@ function hide() {
 var timestamp = new Date().getTime();     
 var el = document.getElementById("image");        
 el.src = "gif/test.gif?t=" + timestamp;   
+
+var timestamp = new Date().getTime();     
+var vi = document.getElementById("vids");        
+vi.src = "vids/output.mp4?t=" + timestamp;   
+
 
     </script>
 <h2>========================[console output]=====================</h2>
