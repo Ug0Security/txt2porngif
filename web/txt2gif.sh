@@ -26,12 +26,32 @@ sleep 1
 
 echo "Crafting Anim imgs.."
 
+num=$(ls *.png | wc -l)
+
+if [[ $num -eq 5 ]]
+then
 proxychains -q bash imgtoanim.sh $(ls *.png | head -1 | tail +1) &
 proxychains -q bash imgtoanim.sh $(ls *.png | head -2 | tail +2) &
 proxychains -q bash imgtoanim.sh $(ls *.png | head -3 | tail +3) &
 proxychains -q bash imgtoanim.sh $(ls *.png | head -4 | tail +4) &
 proxychains -q bash imgtoanim.sh $(ls *.png | head -5 | tail +5) &
 wait
+
+elif [[  $num  -eq 4 ]]
+then
+proxychains -q bash imgtoanim.sh $(ls *.png | head -1 | tail +1) &
+proxychains -q bash imgtoanim.sh $(ls *.png | head -2 | tail +2) &
+proxychains -q bash imgtoanim.sh $(ls *.png | head -3 | tail +3) &
+proxychains -q bash imgtoanim.sh $(ls *.png | head -4 | tail +4) &
+wait
+
+elif [[  $num  -eq 3 ]]
+then
+proxychains -q bash imgtoanim.sh $(ls *.png | head -1 | tail +1) &
+proxychains -q bash imgtoanim.sh $(ls *.png | head -2 | tail +2) &
+proxychains -q bash imgtoanim.sh $(ls *.png | head -3 | tail +3) &
+wait
+fi
 
 sleep 5
 
