@@ -1,6 +1,6 @@
 <?php
    // images directory
-   $imagesDirectory = "sounds";
+   $imagesDirectory = "vids";
 
    // list of files to skip
    $toSkip = [".", "..", ".htaccess", ".htpasswd"];
@@ -20,7 +20,7 @@
                if (in_array($fileName, $toSkip)) continue;
                echo <<<_EOF
                <div class="galleryImage">
-                  <video width="320" height="240" controls>
+                  <video width="640" height="480" controls autoplay>
 		     <source src="$imagesDirectory/$fileName" type="video/mp4">
                   </video>
                </div>
