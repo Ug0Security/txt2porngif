@@ -24,6 +24,9 @@
         /* Set display to none for image*/
         #image {
             display: none;
+            }
+        #vid {
+            display: none;    
         }
     </style>
 </head>
@@ -102,11 +105,17 @@ shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
     <button type="button" onclick="show()" id="btnID">
         Show GIF
     </button>
+    <button type="button" onclick="hidevid()" id="btnID">
+        Hide VID
+    </button>
 
+    <button type="button" onclick="showvid()" id="btnID">
+        Show VID
+    </button>
 <button type="button" name="save" onclick="self.location.href='index.php?save=1'">
 Save
 </button>
-<img id="image" src="./gif/test.gif"></img> <video width="320" height="240" controls><source id="vids" src="./vids/output.mp4" type="video/mp4"></video>
+<img id="image" src="./gif/test.gif"></img> <video id="vid" width="640" height="480" controls><source id="vids" src="./vids/output.mp4" type="video/mp4"></video>
 
 
     
@@ -138,6 +147,24 @@ function hide() {
             /* Access image by id and change
             the display property to block*/
             document.getElementById('image')
+                .style.display = "";
+            document.getElementById('btnID')
+                .style.display = "";
+        }
+
+function showvid() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('vid')
+                .style.display = "block";
+            document.getElementById('btnID')
+                .style.display = "";
+        }
+
+function hidevid() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('vid')
                 .style.display = "";
             document.getElementById('btnID')
                 .style.display = "";
