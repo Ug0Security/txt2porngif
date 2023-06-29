@@ -54,13 +54,15 @@ wait
 fi
 
 sleep 5
+touch anim.mp4
+rm anim.mp4
 
 for i in $(ls *.mp4);
 do
 echo file $i >> list.txt
 done
 
-ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i list.txt -c copy vids/output.mp4
+yes | ffmpeg -f concat -safe 0 -i list.txt -c copy vids/output.mp4
 
 sleep 3
 rm anim*.json
