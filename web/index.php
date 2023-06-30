@@ -2,13 +2,14 @@
 <html>
 <head>
     <title>CRAFT ZONE</title>
-    
+   
     <style>
         body {
             padding: 25px;
             background-color: black;
             color: white;
             font-size: 20px;
+            width: 800px
         }
  
         .dark-mode {
@@ -29,6 +30,22 @@
             display: none;    
         }
         
+h2 {
+  background-color: black;
+  
+  color: green;
+  cursor: pointer;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
         
 
 label {
@@ -51,7 +68,7 @@ label {
 }
 
 .button-33 {
-  background-color: #c2fbd7;
+  
   border-radius: 100px;
   box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
   color: green;
@@ -103,7 +120,7 @@ input {
   margin-top: 10px;
   margin-left: 50px;
   width: 130px;
-  height: 25px;
+  height: 40px;
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
@@ -155,208 +172,58 @@ textarea:focus {
 
 #container {
   width: 60vw;
-  margin: 2vw auto;
-  left :0
+  margin: 1vw auto;
+  
+  
+}
+
+.neonText {
+  color: green;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
 }
 
 h1 {
-  text-align: left;
-  color: #fff;
-  font-size: 2em;
-  letter-spacing: 8px;
-  font-family: 'Press Start 2P';
-  font-weight: 400;
-  /*Create overlap*/
+  margin-left: 8em;
+  font-size: 2rem;
+  animation: flicker 1.5s infinite alternate;     
+}
+
+ /* Flickering animation */
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #0fa,
+      0 0 80px #0fa,
+      0 0 90px #0fa,
+      0 0 100px #0fa,
+      0 0 150px #0fa;
   
-  margin: 0;
-  line-height: 0;
-  /*Animation*/
+  }
   
-  animation: glitch1 2.5s infinite;
-}
-
-h1:nth-child(2) {
-  color: #67f3da;
-  animation: glitch2 2.5s infinite;
-}
-
-h1:nth-child(3) {
-  color: #f16f6f;
-  animation: glitch3 2.5s infinite;
-}
-/*Keyframes*/
-
-@keyframes glitch1 {
-  0% {
-    transform: none;
-    opacity: 1;
-  }
-  7% {
-    transform: skew(-0.5deg, -0.9deg);
-    opacity: 0.75;
-  }
-  10% {
-    transform: none;
-    opacity: 1;
-  }
-  27% {
-    transform: none;
-    opacity: 1;
-  }
-  30% {
-    transform: skew(0.8deg, -0.1deg);
-    opacity: 0.75;
-  }
-  35% {
-    transform: none;
-    opacity: 1;
-  }
-  52% {
-    transform: none;
-    opacity: 1;
-  }
-  55% {
-    transform: skew(-1deg, 0.2deg);
-    opacity: 0.75;
-  }
-  50% {
-    transform: none;
-    opacity: 1;
-  }
-  72% {
-    transform: none;
-    opacity: 1;
-  }
-  75% {
-    transform: skew(0.4deg, 1deg);
-    opacity: 0.75;
-  }
-  80% {
-    transform: none;
-    opacity: 1;
-  }
-  100% {
-    transform: none;
-    opacity: 1;
-  }
-}
-
-@keyframes glitch2 {
-  0% {
-    transform: none;
-    opacity: 0.25;
-  }
-  7% {
-    transform: translate(-2px, -3px);
-    opacity: 0.5;
-  }
-  10% {
-    transform: none;
-    opacity: 0.25;
-  }
-  27% {
-    transform: none;
-    opacity: 0.25;
-  }
-  30% {
-    transform: translate(-5px, -2px);
-    opacity: 0.5;
-  }
-  35% {
-    transform: none;
-    opacity: 0.25;
-  }
-  52% {
-    transform: none;
-    opacity: 0.25;
-  }
-  55% {
-    transform: translate(-5px, -1px);
-    opacity: 0.5;
-  }
-  50% {
-    transform: none;
-    opacity: 0.25;
-  }
-  72% {
-    transform: none;
-    opacity: 0.25;
-  }
-  75% {
-    transform: translate(-2px, -6px);
-    opacity: 0.5;
-  }
-  80% {
-    transform: none;
-    opacity: 0.25;
-  }
-  100% {
-    transform: none;
-    opacity: 0.25;
-  }
-}
-
-@keyframes glitch3 {
-  0% {
-    transform: none;
-    opacity: 0.25;
-  }
-  7% {
-    transform: translate(2px, 3px);
-    opacity: 0.5;
-  }
-  10% {
-    transform: none;
-    opacity: 0.25;
-  }
-  27% {
-    transform: none;
-    opacity: 0.25;
-  }
-  30% {
-    transform: translate(5px, 2px);
-    opacity: 0.5;
-  }
-  35% {
-    transform: none;
-    opacity: 0.25;
-  }
-  52% {
-    transform: none;
-    opacity: 0.25;
-  }
-  55% {
-    transform: translate(5px, 1px);
-    opacity: 0.5;
-  }
-  50% {
-    transform: none;
-    opacity: 0.25;
-  }
-  72% {
-    transform: none;
-    opacity: 0.25;
-  }
-  75% {
-    transform: translate(2px, 6px);
-    opacity: 0.5;
-  }
-  80% {
-    transform: none;
-    opacity: 0.25;
-  }
-  100% {
-    transform: none;
-    opacity: 0.25;
-  }
-}
-        
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
+}       
     </style>
 </head>
 <body>
 <div id="container">
-    <h1>CRAFT ZONE :)</h1>
+    <h1 class="neonText">CRAFT ZONE :)</h1>
 </div>
+<h2>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h2>
     <?php
     // Function to sanitize user input
     
@@ -403,7 +270,7 @@ shell_exec("cp ./gif/output.mp4 ./gif/ouput$int.mp4");
 <button type="button" name="picgal" onclick="self.location.href='picgal.php'" class="button-33" role="button">picgal</button>
 <button type="button" name="gifgal" onclick="self.location.href='gifgal.php'" class="button-33" role="button">gifgal</button>
 <button type="button" name="vidgal" onclick="self.location.href='vidgal.php'" class="button-33" role="button">vidgal</button>
-<h2>=========================================================</h2>
+<h2>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h2>
     <form method="post" action="/txt2porngif/index.php?gif=1">
         <label for="param1">---------Type :</label>
        
@@ -430,7 +297,7 @@ shell_exec("cp ./gif/output.mp4 ./gif/ouput$int.mp4");
         <input type="submit" value="Craft GIF&VID" class="button-33" role="button">
     </form>
 
-<h2>--------------------------------------------------------------------------------------------------</h2>
+<h2>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h2>
     <button type="button" onclick="hide()" id="btnID" class="button-33" role="button">
         Hide GIF
     </button>
@@ -520,15 +387,15 @@ vi.src = "vids/output.mp4?t=" + timestamp;
 
 
     </script>
-<h2>========================[console output]=====================</h2>
- 
+<h2>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h2>
+
  <?php 
  
  echo "<pre>$output1</pre>";
  
  ?>
-<h2>=========================================================</h2>  
-     <form method="post" action="/txt2porngif/index.php?sound=1">
+<h2>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h2>
+    <form method="post" action="/txt2porngif/index.php?sound=1">
        
 	
         <label for="param2">Prompt :</label>
@@ -538,7 +405,7 @@ vi.src = "vids/output.mp4?t=" + timestamp;
         <input type="submit" value="Craft sound" class="button-33" role="button">
     </form>
  
-
+<h2>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h2>
 <video width="320" height="240" controls>
   <source id="sound" src="./sounds/test.mp4" type="video/mp4">
 </video>
@@ -547,14 +414,14 @@ var timestamp = new Date().getTime();
 var so = document.getElementById("sound");        
 so.src = "./sounds/test.mp4?t=" + timestamp;   
     </script>
-<h2>========================[console output]=====================</h2>
+<h2>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h2>
  
  <?php 
  
  echo "<pre>$output2</pre>";
  
  ?>
-<h2>=========================================================</h2>      
+<h2>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h2>
     
 </body>
 </html>
