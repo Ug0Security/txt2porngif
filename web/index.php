@@ -3,6 +3,9 @@
 
 <head>
     <title>CRAFT ZONE</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -214,8 +217,8 @@
             <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
 
                 <!-- Video -->
-                <video id="vid" width="640" height="480" controls autoplay muted>
-                    <source id="vids" src="./vids/output.mp4" type="video/mp4">
+                <video id="vid" width="640" height="480" controls muted loop autoplay>
+                    <source id="vids" src="vids/output.mp4" type="video/mp4">
                 </video>
 
                 <!-- Buttons -->
