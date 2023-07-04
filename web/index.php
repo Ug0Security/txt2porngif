@@ -380,6 +380,11 @@
         var timestamp = new Date().getTime();
         var vi = document.getElementById("vids");
         vi.src = "vids/output.mp4?t=" + timestamp;
+
+        document.querySelector('html').className += " dark";
+        
+        document.getElementById('vid').style.visibility = "hidden";
+        document.getElementById('image').style.visibility = "hidden";
     </script>
 
 </body>
