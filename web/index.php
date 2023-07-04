@@ -3,9 +3,7 @@
 
 <head>
     <title>CRAFT ZONE</title>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -188,10 +186,10 @@
 
         <div class="row mx-8 ">
             <!-- Gif section -->
-            <div class="flex flex-col w-full md:w-1/3 pr-4 py-4">
+            <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
 
                 <!-- Image -->
-                <img id="image" class="self-center my-auto" src="./gif/test.gif"></img>
+                <img id="image" width="640" height="480" src="./gif/test.gif"></img>
 
                 <!-- Buttons -->
                 <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
