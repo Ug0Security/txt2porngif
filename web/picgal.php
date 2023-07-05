@@ -8,7 +8,9 @@
 ?>
 <section id="quickGallery" class="slideInLeft">
    <h1>Pic Gallery</h1>
-   
+      <style>
+body {background-color: black;}
+</style>
       <?php 
          $images = scandir($imagesDirectory);
 	 arsort($images);
