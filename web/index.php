@@ -197,7 +197,7 @@
             <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
 
                 <!-- Image -->
-                <img id="image" width="640" height="480" src="./gif/test.gif"></img>
+                <img id="image" width="1280" height="960" src="./gif/test.gif"></img>
 
                 <!-- Buttons -->
                 <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
@@ -223,7 +223,7 @@
             <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
 
                 <!-- Video -->
-                <video id="vid" width="640" height="480" controls muted loop autoplay>
+                <video id="vid" width="1280" height="960" controls muted loop autoplay>
                     <source id="vids" src="vids/output.mp4" type="video/mp4">
                 </video>
 
@@ -290,7 +290,7 @@
         <div class="row mb-4">
             <div class="col border-b border-[#2cce73]"></div>
         </div>
-        <?php echo "<pre>$output2</pre>"; ?>
+       
 
   <!-- Separator -->
         <div class="row mb-4">
@@ -300,16 +300,17 @@
         <!-- Input form -->
         <div class="row mx-8 my-4">
             <div class="col-full w-full">
-                <?php  echo "<pre>$output1</pre>";  ?>
+                
                 <form method="post" action="/txt2porngif/index.php?saveprompt=1" class="flex flex-wrap w-full">
 
                     <!-- Prompt -->
+                    <label class="whitespace-nowrap text-black dark:text-[#2cce73]" for="param2">Prompt :</label>
                     <div class="flex gap-1 flex-col w-full mb-4">
-                        <label class="whitespace-nowrap text-black dark:text-[#2cce73]" for="param2">Prompt :</label>
+                        
                         <textarea name="param2" id="param2" rows="5" required class="w-full rounded dark:bg-[#0d1016] border border-[#2CCE73] hover:border-[#2CCE73] focus:outline-none focus:border-[#2CCE73] text-black dark:text-[#2cce73] py-1 px-4"></textarea>
                     </div>
 
-                    <!-- Craft button -->
+                    <!-- Save button -->
                     <div class="flex w-full">
                         <input type="submit" value="Save prompt" class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white" role="button">
                     </div>
@@ -325,6 +326,8 @@
 
         </div>
         
+         </div>
+        
                <!-- Separator -->
         <div class="row mb-4">
             <div class="col border-b border-[#2cce73]"></div>
@@ -339,8 +342,13 @@
                     </button>
 
     </div>
-
+  <div class="row mx-8 my-4">
+            <div class="col-full w-full">
+            <div class="flex gap-1 flex-col w-full mb-4">
 <textarea readonly name="prompts" id="prompts" rows="5" required class="w-full rounded border-[#2cce73] bg-white dark:bg-[#0d1016] focus:outline-none text-black dark:text-[#2cce73] border dark:border-[#005704] hover:border-[#2CCE73] focus:border-[#2CCE73] py-1 px-4"><?php $section = file_get_contents('prompt.txt'); echo $section; ?></textarea>
+  </div>
+    </div>
+     </div>
 
 
     <?php
@@ -375,12 +383,12 @@
 
     if (isset($_GET['savevid'])) {
         $int = random_int(100000000, 999999999);
-        shell_exec("cp ./gif/output.mp4 ./gif/ouput$int.mp4");
+        shell_exec("cp ./gif/output.mp4 ./gif/output$int.mp4");
     }
     
    if (isset($_GET['saveprompt']) && isset($_POST['param2'])) {
    
-        $param2 = $_POST['param2']."\n";
+        $param2 = "\n".$_POST['param2']."\n";
         $file = 'prompt.txt';
 
 
