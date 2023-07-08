@@ -179,13 +179,78 @@
 
                     <!-- Craft button -->
                     <div class="flex w-full">
-                        <input type="submit" value="Craft GIF&VID" class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white" role="button">
-                   
+                        <input type="submit" value="Craft GIF&VID" onclick=showload() class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white" role="button">
+                    <img src=load.gif id=load hight=60 width=60 style="visibility:hidden" class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white">
                     </div>
                 </form>
             </div>
         </div>
 
+        <!-- Separator -->
+        <div class="row mt-4">
+            <div class="col border-b border-[#2cce73]"></div>
+        </div>
+               <!-- Separator -->
+        <div class="row mb-4">
+            <div class="col border-b border-[#2cce73]"></div>
+        </div>       
+        
+                              <button type="button" onclick="hidepr()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                        Hide Prompts
+                    </button>
+            
+             <button type="button" onclick="showpr()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                        Show Prompts
+                    </button>
+
+    </div>
+  <div class="row mx-8 my-4" >
+            <div class="col-full w-full">
+            <div class="flex gap-1 flex-col w-full mb-4">
+<textarea readonly name="prompts" style="visibility:hidden" id="prompts" rows="5" required class="w-full rounded border-[#2cce73] bg-white dark:bg-[#0d1016] focus:outline-none text-black dark:text-[#2cce73] border dark:border-[#005704] hover:border-[#2CCE73] focus:border-[#2CCE73] py-1 px-4"><?php $section = file_get_contents('prompt.txt'); echo htmlentities($section); ?></textarea>
+  </div>
+    </div>
+     </div>
+   <!-- Separator -->
+        <div class="row mb-4">
+            <div class="col border-b border-[#2cce73]"></div>
+        </div>
+        
+        <!-- Input form -->
+        <div class="row mx-8 my-4">
+            <div class="col-full w-full">
+                
+                <form method="post" action="/txt2porngif/index.php?saveprompt=1" class="flex flex-wrap w-full">
+
+                    <!-- Prompt -->
+                    <label class="whitespace-nowrap text-black dark:text-[#2cce73]" for="param2">Prompt :</label>
+                    <div class="flex gap-1 flex-col w-full mb-4">
+                        
+                        <textarea name="param2" id="param2" rows="5" required class="w-full rounded dark:bg-[#0d1016] border border-[#2CCE73] hover:border-[#2CCE73] focus:outline-none focus:border-[#2CCE73] text-black dark:text-[#2cce73] py-1 px-4"></textarea>
+                    </div>
+
+                    <!-- Save button -->
+                    <div class="flex w-full">
+                        <input type="submit" value="Save prompt" class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white" role="button">
+                    </div>
+
+
+                </form>
+                   
+            </div>
+            
+
+        
+   
+
+        </div>
+        
+         </div>
+         
+         <!-- Separator -->
+        <div class="row mt-4">
+            <div class="col border-b border-[#2cce73]"></div>
+        </div>        
         <!-- Separator -->
         <div class="row mt-4">
             <div class="col border-b border-[#2cce73]"></div>
@@ -292,64 +357,12 @@
         </div>
        
 
-  <!-- Separator -->
-        <div class="row mb-4">
-            <div class="col border-b border-[#2cce73]"></div>
-        </div>
-
-        <!-- Input form -->
-        <div class="row mx-8 my-4">
-            <div class="col-full w-full">
-                
-                <form method="post" action="/txt2porngif/index.php?saveprompt=1" class="flex flex-wrap w-full">
-
-                    <!-- Prompt -->
-                    <label class="whitespace-nowrap text-black dark:text-[#2cce73]" for="param2">Prompt :</label>
-                    <div class="flex gap-1 flex-col w-full mb-4">
-                        
-                        <textarea name="param2" id="param2" rows="5" required class="w-full rounded dark:bg-[#0d1016] border border-[#2CCE73] hover:border-[#2CCE73] focus:outline-none focus:border-[#2CCE73] text-black dark:text-[#2cce73] py-1 px-4"></textarea>
-                    </div>
-
-                    <!-- Save button -->
-                    <div class="flex w-full">
-                        <input type="submit" value="Save prompt" class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white" role="button">
-                    </div>
 
 
-                </form>
-                   
-            </div>
-            
 
         
-   
 
-        </div>
-        
-         </div>
-        
-               <!-- Separator -->
-        <div class="row mb-4">
-            <div class="col border-b border-[#2cce73]"></div>
-        </div>       
-        
-                              <button type="button" onclick="hidepr()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
-                        Hide Prompts
-                    </button>
-            
-             <button type="button" onclick="showpr()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
-                        Show Prompts
-                    </button>
-
-    </div>
-  <div class="row mx-8 my-4">
-            <div class="col-full w-full">
-            <div class="flex gap-1 flex-col w-full mb-4">
-<textarea readonly name="prompts" id="prompts" rows="5" required class="w-full rounded border-[#2cce73] bg-white dark:bg-[#0d1016] focus:outline-none text-black dark:text-[#2cce73] border dark:border-[#005704] hover:border-[#2CCE73] focus:border-[#2CCE73] py-1 px-4"><?php $section = file_get_contents('prompt.txt'); echo $section; ?></textarea>
-  </div>
-    </div>
-     </div>
-
+         
 
     <?php
     // Function to sanitize user input
@@ -458,6 +471,14 @@ file_put_contents($file, $param2, FILE_APPEND | LOCK_EX);
             the display property to block*/
             document.getElementById('prompts')
                 .style.visibility = "hidden";
+        }
+        
+                function showload() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('load')
+                .style.visibility = "";
+
         }
 
         var timestamp = new Date().getTime();
