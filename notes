@@ -1,6 +1,16 @@
-changement de perm pour le web 
-chmod 666 sounds images gif vids
-chmod +x txt2gif.sh txt2imggif.sh txt2sound.sh txt2sound.py imgtoanim.sh
+copy txt2porngif/web dans /var/www/html/txt2porngif/
+
+lance apache (service apache2 start)
+
+changement de perm pour le web :
+
+chown www-data -R /var/www/html/txt2porngif
+chmod +x /var/www/html/txt2porngif/*.sh
+chmod +x /var/www/html/txt2porngif/*.py
+
+deps:
+
+ffmpeg, proxychains, ipvsadmin et les deps de multitor (docker docker-compose ect..)
 
 https://gitlab.com/VladRico/alienet/-/tree/master/ipvs/demo
 
