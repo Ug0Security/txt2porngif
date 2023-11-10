@@ -88,6 +88,8 @@ cp $timestamp-$seed-$subseed.png ./images/$timestamp-$seed-$subseed.png
 #fi
 #echo "URL EXT : $urlext"
 #curl -sk $urlext -o ext$seed.png
+echo "everthing is ok, deepmaping .."
+proxychains -q bash img2deepmap.sh $timestamp-$seed-$subseed.png $subseed
 
 else
 echo "Crafting Failed"
