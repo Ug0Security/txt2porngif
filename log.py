@@ -1,4 +1,4 @@
-limport uuid
+import uuid
 import requests
 LEIA_LOGIN_OPENID_TOKEN_URL = ("https://auth.leialoft.com/auth/realms/leialoft/protocol/openid-connect/token")
 correlation_id = str(uuid.uuid4())
