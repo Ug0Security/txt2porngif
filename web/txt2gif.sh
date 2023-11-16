@@ -33,6 +33,7 @@ yes | ffmpeg -f concat -safe 0 -i list.txt -c copy vids/output.mp4 -hide_banner 
 sleep 1
 rm anim*.json
 rm *.png
+rm *.jpg
 rm *.mp4
 rm list.txt
 #display test.gif
