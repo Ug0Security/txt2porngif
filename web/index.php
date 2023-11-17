@@ -262,7 +262,7 @@
             <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
 
                 <!-- Image -->
-                <img id="image" width="1280" height="960" src="./gif/test.gif"></img>
+                <img id="image" width="800" height="600" src="./gif/test.gif"></img>
 
                 <!-- Buttons -->
                 <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
@@ -288,10 +288,12 @@
             <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
 
                 <!-- Video -->
-                <video id="vid" width="1280" height="960" controls muted loop autoplay>
+                <video id="vid" width="800" height="600" controls muted loop autoplay>
                     <source id="vids" src="vids/output.mp4" type="video/mp4">
                 </video>
 
+               
+                
                 <!-- Buttons -->
                 <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
                     <button type="button" onclick="hidevid()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
@@ -303,6 +305,25 @@
                     <button type="button" onclick="self.location.href='index.php?savevid=1'" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Save VID
                     </button>
+                    
+                    </div>
+                     </div>
+                    
+                    <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
+                    
+                     <video id="vidHD" width="800" height="600" controls muted loop autoplay>
+                    <source id="vidsHD" src="vids/outputHD.mp4" type="video/mp4">
+                </video>
+                
+                <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
+                
+                                       <button type="button" onclick="hidevidHD()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                        Hide VIDHD
+                    </button>
+                    <button type="button" onclick="showvidHD()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                        Show VIDHD
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -457,7 +478,21 @@ file_put_contents($file, $param2, FILE_APPEND | LOCK_EX);
                 .style.visibility = "hidden";
         }
         
-        
+        function showvidHD() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('vidHD')
+                .style.visibility = "";
+
+        }
+
+        function hidevidHD() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('vidHD')
+                .style.visibility = "hidden";
+        }
+                
                 function showpr() {
             /* Access image by id and change
             the display property to block*/
@@ -489,8 +524,12 @@ file_put_contents($file, $param2, FILE_APPEND | LOCK_EX);
         var vi = document.getElementById("vids");
         vi.src = "vids/output.mp4?t=" + timestamp;
         
-        document.querySelector('html').className += " dark";
+        var timestamp = new Date().getTime();
+        var viHD = document.getElementById("vidsHD");
+        viHD.src = "vids/outputHD.mp4?t=" + timestamp;
         
+        document.querySelector('html').className += " dark";
+        document.getElementById('vidHD').style.visibility = "hidden";        
         document.getElementById('vid').style.visibility = "hidden";
         document.getElementById('image').style.visibility = "hidden";
     </script>
