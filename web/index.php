@@ -323,7 +323,10 @@
                     <button type="button" onclick="showvidHD()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Show VIDHD
                     </button>
-
+                    
+                    <button type="button" onclick="onclick=showload() ;self.location.href='index.php?crafthd=1'" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                        Craft VIDHD
+                    </button>
                 </div>
             </div>
         </div>
@@ -412,6 +415,11 @@
     if (isset($_GET['savegif'])) {
         $int = random_int(100000000, 999999999);
         shell_exec("cp ./gif/test.gif ./gif/test$int.gif");
+    }
+    
+        if (isset($_GET['crafthd'])) {
+        $int = random_int(100000000, 999999999);
+        shell_exec("bash vid2HD.sh");
     }
 
 
