@@ -53,6 +53,47 @@
             flex-shrink: 0;
             flex-basis: 100%
         }
+        
+        
+        /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align : center
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
     </style>
     <style>
         h1 {
@@ -88,6 +129,8 @@
         }
     </style>
 </head>
+
+
 
 <body class="text-[#2cce73] bg-white dark:bg-[#0d1016] transition-all">
     <div class="container mx-auto">
@@ -141,7 +184,7 @@
         <!-- Input form -->
         <div class="row mx-8 my-4">
             <div class="col-full w-full">
-                <form method="post" action="/txt2porngif/index.php?gif=1" class="flex flex-wrap w-full  ">
+                <form method="post" action="/txt2porngif/index.php?gif=1" class="flex flex-wrap w-full" onsubmit="send(event,this)">
 
                     <!-- Type & Fixed seed -->
                     <div class="flex flex-wrap w-full justify-between mb-4 gap-2 gap-y-2">
@@ -178,8 +221,8 @@
                     </div>
 
                     <!-- Craft button -->
-                    <div class="flex w-full">
-                        <input type="submit" value="Craft GIF&VID" onclick=showload() class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white" role="button">
+                    <div class="flex w-full"> 
+                        <input type="submit" value="Craft GIF&VID" class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white" role="button"><button onclick="resetime()" id="timer" class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white"></button>
                     <img src=load.gif id=load hight=60 width=60 style="visibility:hidden" class="ml-auto bg-[#2CCE73] text-black dark:bg-transparent font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all text-white">
                     </div>
                 </form>
@@ -272,7 +315,7 @@
                     <button type="button" onclick="show()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Show GIF
                     </button>
-                    <button type="button" onclick="self.location.href='index.php?savegif=1'" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                    <button type="button" onclick="fetch('/txt2porngif/index.php?savegif=1'); customalert('GIF Saved') ;" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Save GIF
                     </button>
                 </div>
@@ -291,7 +334,13 @@
                 <video id="vid" width="800" height="600" controls muted loop autoplay>
                     <source id="vids" src="vids/output.mp4" type="video/mp4">
                 </video>
+<script>
 
+        var timestamp = new Date().getTime();
+        var vi = document.getElementById("vids");
+        vi.src = "vids/output.mp4?t=" + timestamp;
+        
+        </script>
                
                 
                 <!-- Buttons -->
@@ -302,7 +351,7 @@
                     <button type="button" onclick="showvid()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Show VID
                     </button>
-                    <button type="button" onclick="self.location.href='index.php?savevid=1'" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                    <button type="button" onclick="fetch('/txt2porngif/index.php?savevid=1'); customalert('VID Saved') ;" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Save VID
                     </button>
                     
@@ -314,21 +363,27 @@
                      <video id="vidHD" width="800" height="600" controls muted loop autoplay>
                     <source id="vidsHD" src="vids/outputHD.mp4" type="video/mp4">
                 </video>
+                <script>
                 
+                        var timestamp = new Date().getTime();
+        var viHD = document.getElementById("vidsHD");
+        viHD.src = "vids/outputHD.mp4?t=" + timestamp;
+        
+        </script>
                 <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
                 
                                        <button type="button" onclick="hidevidHD()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Hide VIDHD
                     </button>
-                    <button type="button" onclick="showvidHD()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                    <button type="button" onclick="showvidHD();startime();" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Show VIDHD
                     </button>
                     
-                    <button type="button" onclick="onclick=showload() ;self.location.href='index.php?crafthd=1'" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                    <button type="button" onclick="showload(); showtime(); customalert('Craft VID HD'); fetch('/txt2porngif/index.php?crafthd=1').then((response) => customalert('Craft VID HD Terminé')).then((response) => hidetime()).then((response) => hideload()).then((response) => refreshvidHD());" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
                         Craft VIDHD
                     </button>
                 </div>
-            </div>
+            </divé'
         </div>
 
         <!-- Separator -->
@@ -381,6 +436,15 @@
         </div>
        
 
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" id="alert">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
 
 
 
@@ -425,7 +489,7 @@
 
     if (isset($_GET['savevid'])) {
         $int = random_int(100000000, 999999999);
-        shell_exec("cp ./gif/output.mp4 ./gif/output$int.mp4");
+        shell_exec("cp ./vids/output.mp4 ./vids/output$int.mp4");
     }
     
    if (isset($_GET['saveprompt']) && isset($_POST['param2'])) {
@@ -523,23 +587,133 @@ file_put_contents($file, $param2, FILE_APPEND | LOCK_EX);
                 .style.visibility = "";
 
         }
+        
+                        function hideload() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('load')
+                .style.visibility = "hidden";
 
+        }
+
+	function refreshgif() {
         var timestamp = new Date().getTime();
         var el = document.getElementById("image");
         el.src = "gif/test.gif?t=" + timestamp;
+	}
 
-        var timestamp = new Date().getTime();
-        var vi = document.getElementById("vids");
-        vi.src = "vids/output.mp4?t=" + timestamp;
+
+	function refreshvid() {
+	var timestamp = new Date().getTime();
+        var vi = document.getElementById("vid");
+        var vis = document.getElementById("vids");
+         vi.pause();
+  vis.setAttribute('src', 'vids/output.mp4?' + timestamp);
+  vi.load();
+  vi.play();
+	}
+     
         
-        var timestamp = new Date().getTime();
-        var viHD = document.getElementById("vidsHD");
-        viHD.src = "vids/outputHD.mp4?t=" + timestamp;
+        	function refreshvidHD() {
+	var timestamp = new Date().getTime();
+        var viHD = document.getElementById("vidHD");
+        var visHD = document.getElementById("vidsHD");
+         viHD.pause();
+  visHD.setAttribute('src', 'vids/outputHD.mp4?' + timestamp);
+  viHD.load();
+  viHD.play();
+	}
+	
+
+        refreshvidHD();
+        refreshvid();
+        refreshgif()
+	
+
+	
+
         
+
         document.querySelector('html').className += " dark";
         document.getElementById('vidHD').style.visibility = "hidden";        
         document.getElementById('vid').style.visibility = "hidden";
         document.getElementById('image').style.visibility = "hidden";
+        document.getElementById('timer').style.visibility = "hidden";
+        
+        
+        
+        function customalert(text) {
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+document.getElementById('alert').innerText = text
+// When the user clicks the button, open the modal 
+
+  modal.style.display = "block";
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+}
+
+
+
+
+var temps = 0
+
+	function startime() {
+	
+
+const departMinutes = 0
+const timerElement = document.getElementById("timer")
+temps = departMinutes * 60
+
+setInterval(() => {
+  let minutes = parseInt(temps / 60, 10)
+  let secondes = parseInt(temps % 60, 10)
+
+  minutes = minutes < 10 ? "0" + minutes : minutes
+  secondes = secondes < 10 ? "0" + secondes : secondes
+
+  timerElement.innerText = `${minutes}:${secondes}`
+  temps = temps + 1
+}, 1000)
+	}
+	
+startime()
+	
+	
+
+function showtime(){
+document.getElementById('timer').style.visibility = "";
+temps = 0
+}
+
+function hidetime(){
+document.getElementById('timer').style.visibility = "hidden";
+}
+
+
+function send(e,form) {
+        customalert('Craft GIF&VID') ;
+        showload();
+        showtime() ;
+	fetch(form.action, {method:'post', body: new FormData(form)}).then((response) => customalert('Craft GIF&VID Terminé')).then((response) => hideload()).then((response) => hidetime()).then((response) => refreshgif()).then((response) => refreshvid());
+	e.preventDefault();
+	}
+
+
+</script>
     </script>
 
 </body>
