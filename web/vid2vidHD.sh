@@ -1,4 +1,4 @@
-cook=$(curl -skI "https://vmake.ai/api/v1/storages/persistent/upload-info?contentType=video%2Fmp4&suffix=mp4" | grep "VMAKE_SHARE" | grep -o -P '(?<=VMAKE_SHARE=).*(?=; Path)')
+cook=$(curl -skI "https://vmake.ai/api/v1/storages/persistent/upload-info?contentType=video%2Fmp4&suffix=mp4" | grep "VMAKE_SHARE" | grep -o -P '(?<=VMAKE_SHARE=).*(?=; Path)' | head -n 1)
 echo $cook
 seed=$(shuf -i 1000000000-9999999999 -n 1)
 
