@@ -60,7 +60,7 @@
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 200px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -78,6 +78,7 @@
   border: 1px solid #888;
   width: 80%;
   text-align : center
+  bottom:0;
 }
 
 /* The Close Button */
@@ -215,9 +216,7 @@
                     <!-- Prompt -->
                     <div class="flex gap-1 flex-col w-full mb-4">
                         <label class="whitespace-nowrap text-black dark:text-[#2cce73]" for="param2">Prompt :</label>
-                        <textarea name="param2" id="param2" rows="5" required class="w-full rounded border-[#2cce73] bg-white dark:bg-[#0d1016] focus:outline-none text-black dark:text-[#2cce73] border dark:border-[#005704] hover:border-[#2CCE73] focus:border-[#2CCE73] py-1 px-4"><?php     if (isset($_POST['param2'])) {
-        echo $_POST['param2'];
-    } ?></textarea>
+                        <textarea name="param2" id="param2" rows="5" required class="w-full rounded border-[#2cce73] bg-white dark:bg-[#0d1016] focus:outline-none text-black dark:text-[#2cce73] border dark:border-[#005704] hover:border-[#2CCE73] focus:border-[#2CCE73] py-1 px-4"></textarea>
                     </div>
 
                     <!-- Craft button -->
@@ -305,7 +304,7 @@
             <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
 
                 <!-- Image -->
-                <img id="image" width="800" height="600" src="./gif/test.gif"></img>
+                <img id="image" width="500" height="1200" src="./gif/test.gif"></img>
 
                 <!-- Buttons -->
                 <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
@@ -326,12 +325,42 @@
             <div class="row w-[100vw] -mx-10 md:hidden">
                 <div class="w-full border-b border-[#2cce73]"></div>
             </div>
-
+                                               <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
+                    
+                     <video id="pika" width="800" height="600" controls muted loop autoplay>
+                    <source id="pikas" src="vids/pika.mp4" type="video/mp4">
+                </video>
+                <script>
+                        var timestamp = new Date().getTime();
+        var pik = document.getElementById("pikas");
+        pik.src = "vids/pika.mp4?t=" + timestamp;
+        
+        
+        </script>
+                        <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
+                
+                                       <button type="button" onclick="hidepika()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                        Hide PIKA
+                    </button>
+                    <button type="button" onclick="showpika();" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                        Show PIKA
+                    </button>
+                    
+                    <button type="button" onclick="showload(); showtime(); customalert('Craft pika'); fetch('/txt2porngif/index.php?craftpika=1&promptpika=' + document.getElementById('pikaparam').value).then((response) => customalert('Craft pika Terminé')).then((response) => hidetime()).then((response) => hideload()).then((response) => refreshpika());" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
+                        Craft PIKA
+                    </button>
+                </div>
+                         <div class="flex gap-1 flex-col w-full mb-4">
+                        <label class="whitespace-nowrap text-black dark:text-[#2cce↓73]" for="pikaparam">Pika Prompt :</label>
+                        <textarea name="pikaparam" id="pikaparam" rows="5" required class="w-full rounded border-[#2cce73] bg-white dark:bg-[#0d1016] focus:outline-none text-black dark:text-[#2cce73] border dark:border-[#005704] hover:border-[#2CCE73] focus:border-[#2CCE73] py-1 px-4"></textarea>
+                    </div>
+            </div>
+        </div>
             <!-- Video section -->
             <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
 
                 <!-- Video -->
-                <video id="vid" width="800" height="600" controls muted loop autoplay>
+                <video id="vid" width="572" height="1024" controls muted loop autoplay>
                     <source id="vids" src="vids/output.mp4" type="video/mp4">
                 </video>
 <script>
@@ -357,19 +386,22 @@
                     
                     </div>
                      </div>
-                    
-                    <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
+                     
+
+        
+                           <div class="flex flex-col w-full md:w-2/3 md:border-l border-[#2CCE73] pl-4 py-4">
                     
                      <video id="vidHD" width="800" height="600" controls muted loop autoplay>
                     <source id="vidsHD" src="vids/outputHD.mp4" type="video/mp4">
                 </video>
                 <script>
-                
-                        var timestamp = new Date().getTime();
+                                        var timestamp = new Date().getTime();
         var viHD = document.getElementById("vidsHD");
         viHD.src = "vids/outputHD.mp4?t=" + timestamp;
         
+        
         </script>
+
                 <div class="flex flex-wrap justify-center gap-2  gap-y-2 mt-4">
                 
                                        <button type="button" onclick="hidevidHD()" id="btnID" class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" role="button">
@@ -383,7 +415,8 @@
                         Craft VIDHD
                     </button>
                 </div>
-            </divé'
+                           
+            </div>
         </div>
 
         <!-- Separator -->
@@ -440,8 +473,12 @@
 
   <!-- Modal content -->
   <div class="modal-content" id="alert">
+   <img src="/txt2porngif/craft.gif">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p>
+    Some text in the Modal..
+    </p>
+   
   </div>
 
 </div>
@@ -484,6 +521,12 @@
         if (isset($_GET['crafthd'])) {
         $int = random_int(100000000, 999999999);
         shell_exec("bash vid2HD.sh");
+    }
+
+        if (isset($_GET['craftpika'])) {
+        $int = random_int(100000000, 999999999);
+        $promptpika = escapeshellarg($_GET['promptpika']);
+        shell_exec("bash img2pika.sh $promptpika");
     }
 
 
@@ -564,6 +607,21 @@ file_put_contents($file, $param2, FILE_APPEND | LOCK_EX);
             document.getElementById('vidHD')
                 .style.visibility = "hidden";
         }
+        
+                function showpika() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('pika')
+                .style.visibility = "";
+
+        }
+
+        function hidepika() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('pika')
+                .style.visibility = "hidden";
+        }
                 
                 function showpr() {
             /* Access image by id and change
@@ -624,10 +682,21 @@ file_put_contents($file, $param2, FILE_APPEND | LOCK_EX);
   viHD.play();
 	}
 	
+	        	function refreshpika() {
+	var timestamp = new Date().getTime();
+        var pik = document.getElementById("pika");
+        var piks = document.getElementById("pikas");
+         pik.pause();
+  piks.setAttribute('src', 'vids/pika.mp4?' + timestamp);
+  pik.load();
+  pik.play();
+	}
+	
 
         refreshvidHD();
         refreshvid();
-        refreshgif()
+        refreshgif();
+        refreshpika();
 	
 
 	
