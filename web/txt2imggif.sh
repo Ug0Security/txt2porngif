@@ -8,7 +8,7 @@ then
 seed=$(shuf -i 1000000000-9999999999 -n 1)
 fi
 
-curl -sk https://editor.imagelabs.net/txt2img -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0" -H "Content-Type: application/json; charset=utf-8" -H "X-Requested-With: XMLHttpRequest"  -d "{\"prompt\":\"$prompt,\",\"seed\":\"$seed\",\"subseed\":\"$subseed\",\"subseed_strength\":0.1,\"cfg_scale\":8,\"width\":576,\"height\":1024,\"tiling\":false,\"negative_prompt\":\"lowres, worst quality, low quality\",\"restore_faces\":true,\"model\":\"$type\",\"site\":\"PornLabs.net\",\"pose\":\"None\",\"nsfw\":true}" > test$subseed.json
+curl -sk https://editor.imagelabs.net/txt2img -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0" -H "Content-Type: application/json; charset=utf-8" -H "X-Requested-With: XMLHttpRequest"  -d "{\"prompt\":\"$prompt,\",\"seed\":\"$seed\",\"subseed\":\"$subseed\",\"subseed_strength\":0.1,\"cfg_scale\":8,\"width\":576,\"height\":1024,\"tiling\":false,\"negative_prompt\":\"\",\"restore_faces\":true,\"model\":\"$type\",\"site\":\"PornLabs.net\",\"pose\":\"None\",\"nsfw\":true}" > test$subseed.json
 task=$(jq .task_id test$subseed.json | tr -d '"')
 echo "Task (seed-subseed): $task ($seed-$subseed)"
 
@@ -88,8 +88,8 @@ cp $timestamp-$seed-$subseed.png ./images/$timestamp-$seed-$subseed.png
 #fi
 #echo "URL EXT : $urlext"
 #curl -sk $urlext -o ext$seed.png
-echo "everthing is ok, deepmaping .."
-proxychains -q bash img2deepmap.sh $timestamp-$seed-$subseed.png $subseed
+#echo "everthing is ok, deepmaping .."
+#bash img2deepmap.sh $timestamp-$seed-$subseed.png $subseed
 
 else
 echo "Crafting Failed"
