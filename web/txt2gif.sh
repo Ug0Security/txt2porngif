@@ -1,3 +1,5 @@
+rm *.mp4
+rm *.png
 echo "Prompt : $2"
 echo " Crafting imgs.."
 
@@ -20,20 +22,19 @@ wait
 
 echo "Crafting GIF.."
 convert -limit memory 3MB -delay 500 -loop 0 *.png ./gif/test$seed.gif
-sleep 1
+#sleep 1
 
 echo "Crafting VID.."
 for i in $(ls *.mp4);
 do
 echo file $i >> list.txt
+echo file $i >> list.txt
 done
 yes | ffmpeg -f concat -safe 0 -i list.txt -c copy vids/output.mp4 -hide_banner -loglevel error
 
 
-sleep 1
+#sleep 1
 rm anim*.json
-rm *.png
 rm *.jpg
-rm *.mp4
 rm list.txt
 #display test.gif
