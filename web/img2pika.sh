@@ -12,11 +12,13 @@ wait
 
 for i in $(ls pika*.mp4);
 do
+ffmpeg -i $i -vf reverse rev$i
 echo file $i >> list3.txt
-echo file $i >> list3.txt
+echo file rev$i >> list3.txt
 echo file $i >> list3.txt
 done
 yes | ffmpeg -f concat -safe 0 -i list3.txt -c copy vids/pika.mp4 -hide_banner -loglevel error
 
 rm *.png
+rm rev*.mp4
 rm list3.txt
